@@ -14,7 +14,17 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+ENV["RAILS_ENV"] ||= 'test'
+require File.expand_path("../../config/environment", __FILE__)
+require 'rspec/rails'
+
+# Add this to load Capybara integration:
+require 'capybara/rspec'
+require 'capybara/rails'
+
 RSpec.configure do |config|
+
+    config.include Capybara::DSL
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
